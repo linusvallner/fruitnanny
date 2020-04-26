@@ -1,7 +1,3 @@
-[![Build Status](https://dev.azure.com/fruitnanny/Build/_apis/build/status/fruitnanny?branchName=master)](https://dev.azure.com/fruitnanny/Build/_build/latest?definitionId=1?branchName=master)
-[![Relase Status](https://vsrm.dev.azure.com/fruitnanny/_apis/public/Release/badge/68b6a6ae-a3e4-41fa-b16e-bc4bbacd139a/1/1)](https://vsrm.dev.azure.com/fruitnanny/_apis/public/Release/badge/68b6a6ae-a3e4-41fa-b16e-bc4bbacd139a/1/1)
-
-
 # Overview
 
 **Fruitnanny** is a code name for a DIY *geek* baby monitor. 
@@ -39,7 +35,7 @@ Follow [installation instruction](INSTALLATION.md)
 
 # Configuration
 
-Modify [fruitnanny_config](./fruitnanny_config.js) to configure the baby monitor.
+Modify [fruitnanny_config](./nodejs/fruitnanny_config.js) to configure the baby monitor.
 
 Params:
 * `baby_name` - baby's name to display in UI
@@ -48,7 +44,7 @@ Params:
 
 > Restart the system after change
 
-To update baby's picture you need to replace file `public\project\img\baby.png`.
+To update baby's picture you need to replace file `nodejs\public\project\img\baby.png`.
 
 # How to build and run locally
 
