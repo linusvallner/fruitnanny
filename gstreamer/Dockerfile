@@ -11,9 +11,8 @@ RUN echo 'APT::Install-Recommends "false";' >/etc/apt/apt.conf.d/00recommends \
     libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev git pulseaudio \
     libltdl-dev libcap-dev libsndfile1-dev libdbus-1-dev libspeexdsp-dev \
     libasound2-dev libavahi-client-dev avahi-daemon \
-    && git clone https://github.com/thaytan/gst-rpicamsrc /tmp/gst-rpicamsrc \
+    && git clone --depth=1 https://github.com/linusvallner/gst-rpicamsrc.git /tmp/gst-rpicamsrc \
     && cd /tmp/gst-rpicamsrc \
-    && git checkout 4ee114fbbf35d85169603aa37678642e9774152a \
     && ./autogen.sh --prefix=/usr --libdir=/usr/lib/arm-linux-gnueabihf/ \
     && make \
     && make install \
@@ -25,5 +24,3 @@ RUN echo 'APT::Install-Recommends "false";' >/etc/apt/apt.conf.d/00recommends \
     && rm -rf /tmp/*
 
 RUN useradd -rm -d /home/pi -s /bin/bash -g users -G adm,dialout,sudo,audio,video,plugdev,input,netdev -u 1000 pi
-COPY docker/gstreamer/audio_entry.sh /
-COPY docker/gstreamer/audio_stream.sh /
