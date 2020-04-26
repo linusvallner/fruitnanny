@@ -36,13 +36,10 @@ services:
         #command: gst-launch-1.0 -v pulsesrc device=microphone ! audioconvert ! audioresample ! opusenc ! rtpopuspay ! queue max-size-bytes=0 max-size-buffers=0 ! udpsink host=127.0.0.1 port=5002
     command: "/audio_entry.sh"
 
-  fruitnanny:
-    build: ./fruitnanny-app
+  nodejs:
+    build: ./nodejs
     restart: always
     privileged: true
-    volumes:
-      - ./fruitnanny_config.js:/opt/fruitnanny/fruitnanny-app/fruitnanny_config.js
-      - ./bin:/opt/fruitnanny/fruitnanny-app/bin
     network_mode: "host"
     depends_on:
       - janus
