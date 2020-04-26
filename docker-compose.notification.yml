@@ -8,14 +8,14 @@ services:
     network_mode: "host"
     privileged: true
     volumes:
-      - /opt/fruitnanny/fruitnanny-app/bin:/opt/fruitnanny/fruitnanny-app/bin
+      - /opt/fruitnanny/nodejs/bin:/opt/fruitnanny/nodejs/bin
     depends_on:
       - nginx
       - janus
-      - fruitnanny
+      - nodejs
     #command: /bin/bash
     #tty: true
-    command: python3 /opt/fruitnanny/fruitnanny-app/bin/temperature.py
+    command: python3 /opt/fruitnanny/nodejs/bin/temperature.py
 
   notification-motion:
     image: fruitnanny_notification-temp
@@ -23,12 +23,12 @@ services:
     network_mode: "host"
     privileged: true
     volumes:
-      - /opt/fruitnanny/fruitnanny-app/bin:/opt/fruitnanny/fruitnanny-app/bin
+      - /opt/fruitnanny/nodejs/bin:/opt/fruitnanny/nodejs/bin
     depends_on:
       - nginx
       - janus
-      - fruitnanny
+      - nodejs
       - notification-temp
     #command: /bin/bash
     #tty: true
-    command: python3 /opt/fruitnanny/fruitnanny-app/bin/motion.py
+    command: python3 /opt/fruitnanny/nodejs/bin/motion.py
