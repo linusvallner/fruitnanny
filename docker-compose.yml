@@ -53,7 +53,7 @@ services:
     network_mode: "host"
     depends_on:
       - janus
-      - fruitnanny-app
+      - nodejs
     volumes:
       - ./configuration/nginx/fruitnanny_http:/etc/nginx/conf.d/default.conf
       - ./configuration/nginx/fruitnanny_https:/etc/nginx/conf.d/default-ssl.conf
