@@ -12,7 +12,7 @@ router.get("/on", (req: express.Request, res: express.Response, next: express.Ne
     //     sw = "on";
     // }
     // res.json(sw);
-    cp.exec("bin/light.sh on", () => {
+    cp.exec("bin/light.py 1 on", () => {
         res.json("on");
     });
 });
@@ -23,7 +23,7 @@ router.get("/off", (req: express.Request, res: express.Response, next: express.N
     //     sw = "off";
     // }
     // res.json(sw);
-    cp.exec("bin/light.sh off", () => {
+    cp.exec("bin/light.py 1 off", () => {
         res.json("off");
     });
 });
@@ -31,7 +31,7 @@ router.get("/off", (req: express.Request, res: express.Response, next: express.N
 router.get("/status", (req: express.Request, res: express.Response, next: express.NextFunction) => {
     // console.log("status");
     // res.json(sw);
-    cp.exec("bin/light.sh status", (err, stdout, stderr) => {
+    cp.exec("bin/light.py 1 status", (err, stdout, stderr) => {
         let status = null;
         if (stdout.trim() === "1") {
             status = "on";
